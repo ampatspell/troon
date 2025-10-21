@@ -3,6 +3,8 @@ import path from "node:path";
 import started from "electron-squirrel-startup";
 import serve from 'electron-serve';
 
+app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
+
 const loadURL = serve({ directory: '.vite/renderer/main_window' });
 
 declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string;
