@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import serve from 'electron-serve';
+import { startGPIO } from './gpio';
 
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
@@ -39,6 +40,7 @@ const createWindow = async () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
   await createWindow();
+  await startGPIO();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
