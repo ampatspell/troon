@@ -1,31 +1,12 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
-
-	let err = $state();
-
-	let start = async () => {
-		try {
-			let audio = new Audio('/Untitled 100.mp3');
-			audio.volume = 1;
-			await audio.play();
-		} catch(_err) {
-			err = _err;
-		}
-	}
-
-	$effect(() => {
-		start();
-	});
+  import './global.scss';
+  let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </svelte:head>
-
-{#if err}
-	{err}
-{/if}
 
 {@render children?.()}

@@ -6,10 +6,10 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
-      pages: ".vite/renderer/main_window",
+      pages: '.vite/renderer/main_window',
     }),
     router: {
-      type: "hash",
+      type: 'hash',
     },
   },
 };
