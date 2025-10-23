@@ -13,5 +13,3 @@ export const startGPIO = async () => {
   });
 
 }
-
-// cat /sys/kernel/debug/gpio
