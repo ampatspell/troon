@@ -10,6 +10,7 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     prune: true,
+    // https://github.com/electron/forge/issues/3934
     ignore: (file: string) => {
       if (file) {
         const keep = file.startsWith('/.vite') || file.startsWith('/node_modules');
