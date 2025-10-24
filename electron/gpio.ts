@@ -6,9 +6,9 @@ export const startGpio = () => {
 
   pushpin.watch(async (err, value) => {
     console.log(err, value);
-    if(value === 1) {
+    if (value === 1) {
       const next = await ledpin.read();
       await ledpin.write(next === 0 ? 1 : 0);
     }
   });
-}
+};

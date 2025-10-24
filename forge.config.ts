@@ -4,13 +4,10 @@ import { MakerDeb } from '@electron-forge/maker-deb';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
-import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
 
 const config: ForgeConfig = {
   packagerConfig: {
-    asar: {
-      unpack: '**/node_modules/epoll/**/*,**/node_modules/@julusian/epoll/**/*,**/*.node',
-    },
+    asar: true,
   },
   rebuildConfig: {
     force: true,
@@ -18,7 +15,6 @@ const config: ForgeConfig = {
   },
   makers: [new MakerZIP({}, ['darwin']), new MakerDeb({})],
   plugins: [
-    new AutoUnpackNativesPlugin({}),
     new VitePlugin({
       build: [
         {

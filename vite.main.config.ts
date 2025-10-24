@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
-import { builtinModules } from "node:module";
-// import common from '@rollup/plugin-commonjs';
+import { builtinModules } from 'node:module';
 
 const injectFilename = () => {
   return {
@@ -11,7 +10,7 @@ const injectFilename = () => {
       }
     },
   };
-}
+};
 
 // https://vitejs.dev/config
 export default defineConfig({
@@ -23,13 +22,8 @@ export default defineConfig({
       fileName: 'main',
     },
     rollupOptions: {
-      external: ["electron", ...builtinModules, 'onoff', 'epoll'],
-    }
+      external: ['electron', ...builtinModules, 'onoff', 'epoll'],
+    },
   },
-  plugins: [
-    injectFilename(),
-    // common({
-    //   include: './node_modules/**',
-    // }),
-  ]
+  plugins: [injectFilename()],
 });
