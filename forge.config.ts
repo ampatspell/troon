@@ -11,7 +11,7 @@ const config: ForgeConfig = {
   },
   rebuildConfig: {
     force: true,
-    onlyModules: ["epoll"],
+    onlyModules: ['epoll'],
   },
   makers: [new MakerZIP({}, ['darwin']), new MakerDeb({})],
   plugins: [
