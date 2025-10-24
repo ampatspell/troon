@@ -1,8 +1,8 @@
-import * as Bridge from './-gpio.cjs';
+import { Gpio } from 'onoff';
 
-export const startGPIO = async () => {
-  const ledpin = Bridge.GPIO(538, 'out');
-  const pushpin = Bridge.GPIO(516, 'in', 'both');
+export const startGpio = () => {
+  const ledpin = new Gpio(538, 'out');
+  const pushpin = new Gpio(516, 'in', 'both');
 
   pushpin.watch(async (err, value) => {
     console.log(err, value);
@@ -11,5 +11,4 @@ export const startGPIO = async () => {
       await ledpin.write(next === 0 ? 1 : 0);
     }
   });
-
 }
