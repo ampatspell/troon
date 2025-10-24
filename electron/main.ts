@@ -9,12 +9,14 @@ const loadURL = serve({ directory: '.vite/renderer/main_window' });
 
 declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string;
 
+let mainWindow: BrowserWindow;
+
 const createWindow = async () => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
+      contextIsolation: false,
       preload: path.join(import.meta.dirname, 'preload/preload.js'),
     },
   });
@@ -29,12 +31,11 @@ const createWindow = async () => {
   }
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
   await createWindow();
-  await startGpio();
+  startGpio(() => {
+    mainWindow.webContents.postMessage('play', '*');
+  });
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

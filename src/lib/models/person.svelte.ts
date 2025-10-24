@@ -1,8 +1,5 @@
 import { Sound } from './sound.svelte';
-
-const rnd = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+import { rnd } from './utils';
 
 export class Person {
   readonly sounds: Sound[];

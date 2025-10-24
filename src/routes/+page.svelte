@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from '$lib/components/button.svelte';
   import { people } from '$lib/models/person.svelte';
+  import { rnd } from '$lib/models/utils';
 
   let onkeydown = (e: KeyboardEvent) => {
     const key = e.key;
@@ -14,6 +15,17 @@
       }
     }
   };
+
+  let play = () => {
+    let person = people[rnd(0, people.length - 1)];
+    person.speak();
+  };
+
+  $effect(() => {
+    window.electron?.onPlay(() => {
+      play();
+    });
+  });
 </script>
 
 <svelte:window {onkeydown} />

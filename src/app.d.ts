@@ -10,4 +10,14 @@ declare global {
   }
 }
 
+export type IElectron = {
+  onPlay: (cb: () => void) => void;
+};
+
+declare global {
+  interface Window {
+    electron: IElectron;
+  }
+}
+
 export {};
