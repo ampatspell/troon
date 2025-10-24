@@ -8,6 +8,9 @@ const config = {
     adapter: adapter({
       pages: '.vite/renderer/main_window',
     }),
+    alias: {
+      $electron: './electron',
+    },
     router: {
       type: 'hash',
     },

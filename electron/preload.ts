@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
+import type { ElectronGlobal } from './types';
 
 contextBridge.exposeInMainWorld('electron', {
   onPlay: (handler: () => void) => {
@@ -6,4 +7,4 @@ contextBridge.exposeInMainWorld('electron', {
       handler();
     });
   },
-});
+} satisfies ElectronGlobal);

@@ -1,5 +1,5 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+import type { ElectronGlobal } from '$electron/types';
+
 declare global {
   namespace App {
     // interface Error {}
@@ -10,13 +10,9 @@ declare global {
   }
 }
 
-export type IElectron = {
-  onPlay: (cb: () => void) => void;
-};
-
 declare global {
   interface Window {
-    electron: IElectron;
+    electron: ElectronGlobal;
   }
 }
 
