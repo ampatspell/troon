@@ -1,6 +1,5 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
-import started from 'electron-squirrel-startup';
 import serve from 'electron-serve';
 import { startGpio } from './gpio';
 
@@ -9,11 +8,6 @@ app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 const loadURL = serve({ directory: '.vite/renderer/main_window' });
 
 declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string;
-
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (started) {
-  app.quit();
-}
 
 const createWindow = async () => {
   // Create the browser window.
