@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { builtinModules } from 'node:module';
-import common from '@rollup/plugin-commonjs';
+// import common from '@rollup/plugin-commonjs';
 
 const injectFilename = () => {
   return {
@@ -28,8 +28,8 @@ export default defineConfig({
   },
   plugins: [
     injectFilename(),
-    common({
-      include: './node_modules/**',
-    }),
+    // common({
+    //   include: './node_modules/**',
+    // }),
   ],
 });
