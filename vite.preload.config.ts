@@ -9,10 +9,5 @@ export default defineConfig({
       entry: 'electron/preload.ts',
       fileName: 'preload',
     },
-    rollupOptions: {
-      output: {
-        entryFileNames: '[name].js',
-      },
-    },
   },
 });

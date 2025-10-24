@@ -12,9 +12,6 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['electron', ...builtinModules, 'epoll'],
-      output: {
-        entryFileNames: '[name].js',
-      },
     },
   },
 });
