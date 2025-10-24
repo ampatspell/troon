@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "main": ".vite/build/main.js",
+  "main": ".vite/main.js",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -16,6 +16,7 @@
     "start": "electron-forge start",
     "package": "vite build && electron-forge package",
     "make": "vite build && electron-forge make",
+    "postinstall": "electron-rebuild",
     "publish": "electron-forge publish",
     "flc": "npm run check && npm run format && npm run lint"
   },

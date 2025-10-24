@@ -1,13 +1,18 @@
 import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config
 export default defineConfig({
   build: {
-    outDir: '.vite/build',
+    outDir: '.vite/preload',
+    emptyOutDir: false,
     lib: {
       formats: ['es'],
       entry: 'electron/preload.ts',
       fileName: 'preload',
+    },
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+      },
     },
   },
 });

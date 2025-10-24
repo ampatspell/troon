@@ -4,14 +4,19 @@ import { MakerDeb } from '@electron-forge/maker-deb';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
-// import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-natives";
+import { AutoUnpackNativesPlugin } from '@electron-forge/plugin-auto-unpack-natives';
 
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    // asar: {
-    //   unpack: '**/node_modules/epoll/**/*,**/*.node',
-    // },
+    prune: true,
+    ignore: (file: string) => {
+      if (file) {
+        const keep = file.startsWith('/.vite') || file.startsWith('/node_modules');
+        return !keep;
+      }
+      return false;
+    },
   },
   rebuildConfig: {
     force: true,
@@ -19,7 +24,7 @@ const config: ForgeConfig = {
   },
   makers: [new MakerZIP({}, ['darwin']), new MakerDeb({})],
   plugins: [
-    // new AutoUnpackNativesPlugin({}),
+    new AutoUnpackNativesPlugin({}),
     new VitePlugin({
       build: [
         {
