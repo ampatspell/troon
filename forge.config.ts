@@ -8,7 +8,9 @@ import { AutoUnpackNativesPlugin } from "@electron-forge/plugin-auto-unpack-nati
 
 const config: ForgeConfig = {
   packagerConfig: {
-    asar: true,
+    asar: {
+      unpack: '**/node_modules/epoll/**/*,**/*.node',
+    },
   },
   rebuildConfig: {
     force: true,
