@@ -23,7 +23,7 @@ const createWindow = async () => {
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
     mainWindow.webContents.on('did-frame-finish-load', () => {
-      mainWindow.webContents.openDevTools({ mode: 'detach' });
+      mainWindow.webContents.openDevTools({ mode: 'detach', activate: false });
     });
   } else {
     await loadURL(mainWindow);
