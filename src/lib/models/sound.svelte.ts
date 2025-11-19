@@ -24,7 +24,7 @@ export class Sound {
   private readonly audio: HTMLAudioElement;
 
   constructor(public readonly name: string) {
-    this.audio = new Audio(`/sounds/${name}.wav`);
+    this.audio = new Audio(`/sounds-2/${name}.mp3`);
     this.audio.addEventListener('play', () => playing.add(this));
     this.audio.addEventListener('pause', () => this.onDone());
     this.audio.addEventListener('ended', () => this.onDone());
