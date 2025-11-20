@@ -28,8 +28,8 @@ const pick = () => {
 };
 
 export const people = [
-  new Person('Larijs', pick()),
-  new Person('Zeeba', pick()),
-  new Person('Fedja', pick()),
-  new Person('Kāmīc', pick()),
+  new Person('Sarkana poga', pick()),
+  new Person('Zaļa poga', pick()),
+  new Person('Melna poga', pick()),
+  new Person('Dzeltena poga', pick()),
 ];
