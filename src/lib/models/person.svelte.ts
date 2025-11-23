@@ -19,12 +19,12 @@ export class Person {
   }
 }
 
-const count = 22;
+const count = 29;
 
 const names = [...Array(count).keys()].map((_, idx) => `${idx + 1}`.padStart(2, '0'));
 
 const pick = () => {
-  return [...Array(15).keys()].map(() => names[rnd(0, count - 1)]);
+  return [...Array(count).keys()].map(() => names[rnd(0, count - 1)]);
 };
 
 export const people = [
