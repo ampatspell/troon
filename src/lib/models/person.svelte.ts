@@ -47,7 +47,7 @@ export class Person {
   }
 }
 
-const count = 43;
+const count = 39;
 
 const names = [...Array(count).keys()].map((_, idx) => `${idx + 1}`.padStart(2, '0'));
 
